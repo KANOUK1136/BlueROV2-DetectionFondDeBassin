@@ -2,9 +2,12 @@ import time
 from pymavlink import mavutil
 
 # Connect to the BlueROV2
-mav = mavutil.mavlink_connection('udp:192.168.2.1:14550')
+mav = mavutil.mavlink_connection('udp:192.168.2.1:14550') #FIXME need to be tested with bluerov
+#mav = mavutil.mavlin_connction('udpin:0.0.0.0:14550')
 mav.wait_heartbeat()
 print("ROV connected!")
+print(mav.recv_match().to_dict())
+
 
 def send_ned_velocity(vx, vy, vz, duration):
     """ Send velocity command in NED frame """
