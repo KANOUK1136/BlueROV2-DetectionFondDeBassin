@@ -34,13 +34,13 @@ def main():
     args = parse_arguments()
     frame_width, frame_height = args.webcam_resolution
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(2)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, frame_width)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, frame_height)
 
     # Load the trained YOLO model
-    model = YOLO("runs/detect/train4/weights/best.pt")  
-
+    #model = YOLO("runs/detect/train4/weights/best.pt")  
+    model = YOLO("")
     box_annotator = sv.BoxAnnotator(thickness=2)
 
     zone_polygon = (ZONE_POLYGON * np.array(args.webcam_resolution)).astype(int)

@@ -1,4 +1,4 @@
-import cv2
+#import cv2
 import argparse
 import numpy as np
 from ultralytics import YOLO
